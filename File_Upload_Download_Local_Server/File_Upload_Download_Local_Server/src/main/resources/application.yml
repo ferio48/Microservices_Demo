@@ -1,0 +1,10 @@
+server:
+  port: 4848
+
+spring:
+  application:
+    name: file-upload-download-service
+
+eureka:
+  instance:
+    hostname: localhost

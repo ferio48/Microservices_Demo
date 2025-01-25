@@ -1,0 +1,36 @@
+server:
+  port: 8085
+
+eureka:
+  instance:
+    hostname: localhost
+
+spring:
+  application:
+    name: api-gateway
+  cloud:
+    gateway:
+      routes:
+        - id: user-service
+          uri: lb://user-service
+          predicates:
+            - Path=/user/**
+#          filters:
+#            - AuthenticationFilter
+
+        - id: contact-service
+          uri: lb://contact-service
+          predicates:
+            - Path=/contact/**
+#          filters:
+#            - AuthenticationFilter
+
+#        - id: identity-service
+#          uri: lb://identity-service
+##          predicates:
+##            - Path=/auth/**
+
+        - id: role-based-security-service
+          uri: lb://role-based-security-service
+          predicates:
+            - Path=/api/v1/**

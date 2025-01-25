@@ -1,0 +1,13 @@
+server:
+  port: 8083
+
+spring:
+  application:
+    name: contact-service
+  jpa:
+    hibernate:
+      ddl-auto: update
+
+eureka:
+  instance:
+    hostname: localhost
